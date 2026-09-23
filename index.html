@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 3 - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+
+    <nav>
+        <div class="brand">
+            <h2>KELOMPOK 3</h2>
+            <span>X PPLG 1</span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 data-aos="fade-down">Welcome to <span>Kelompok 3</span></h1>
+
+        <div class="buttons" data-aos="zoom-in" data-aos-delay="200">
+            <a href="gallery.html" onclick="klik(event)">Gallery</a>
+            <a href="about.html" onclick="klik(event)">About</a>
+        </div>
+    </section>
+
+    <section class="anggota">
+        <h2 data-aos="fade-up">Anggota Kelompok</h2>
+
+        <div class="members">
+            <p data-aos="fade-right">Adnan Setiawan</p>
+            <p data-aos="fade-right" data-aos-delay="100">Afrizal Maulana Herwanto</p>
+
+            <div class="more" id="more">
+                <p data-aos="fade-right">Alifia Dwi Oktaviani</p>
+                <p data-aos="fade-right" data-aos-delay="100">Allysa Aulia Hendarto</p>
+                <p data-aos="fade-right" data-aos-delay="200">Avino Febrian</p>
+                <p data-aos="fade-right" data-aos-delay="300">Azzahra Najwa Sabilla</p>
+                <p data-aos="fade-right" data-aos-delay="400">Diva Selawati</p>
+                <p data-aos="fade-right" data-aos-delay="500">Dzaky Alfiano</p>
+                <p data-aos="fade-right" data-aos-delay="600">Faris Adriansyah</p>
+            </div>
+
+            <button onclick="lihatLainnya()" id="btnMore" data-aos="fade-up">Lihat Lainnya ▼</button>
+        </div>
+    </section>
+
+    <footer>© ?</footer>
+
+    <audio id="klik" src="click.wav" preload="auto"></audio>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false
+        });
+
+        function klik(e) {
+            e.preventDefault();
+            const tujuan = e.currentTarget.href;
+            const suara = document.getElementById('klik');
+
+            suara.currentTime = 0;
+            suara.play();
+
+            setTimeout(() => {
+                window.location.href = tujuan;
+            }, 200);
+        }
+
+        function lihatLainnya() {
+            const more = document.getElementById('more');
+            const btn = document.getElementById('btnMore');
+
+            more.classList.toggle('show');
+
+            if (more.classList.contains('show')) {
+                btn.textContent = 'Sembunyikan ▲';
+            } else {
+                btn.textContent = 'Lihat Lainnya ▼';
+            }
+
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>
