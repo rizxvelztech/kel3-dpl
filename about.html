@@ -61,7 +61,6 @@
             }, 200);
         }
 
-        // SLIDESHOW OTOMATIS
         const slides = document.querySelectorAll('.slide');
         let index = 0;
 
@@ -69,7 +68,7 @@
             slides[index].classList.remove('active');
             index = (index + 1) % slides.length;
             slides[index].classList.add('active');
-        }, 3000); // ganti tiap 3 detik
+        }, 3000);
     </script>
 
 </body>

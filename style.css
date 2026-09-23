@@ -11,6 +11,16 @@ body {
     min-height: 100vh;
 }
 
+/* OUTLINE TEKS PUTIH SAJA */
+.anggota h2,
+.container h1,
+footer {
+    text-shadow: 
+        0 0 4px black,
+        0 0 8px black,
+        2px 2px 4px black;
+}
+
 /* ABOUT BOX */
 .about-box {
     max-width: 700px;
@@ -47,13 +57,6 @@ body {
 
 .slideshow .slide.active {
     opacity: 1;
-}
-
-/* RESPONSIVE SLIDESHOW */
-@media (max-width: 700px) {
-    .slideshow {
-        height: 250px;
-    }
 }
 
 /* NAVBAR */
@@ -103,33 +106,56 @@ nav a {
     font-size: 50px;
     margin-bottom: 25px;
     font-family: 'Courier New', monospace;
+    line-height: 1.2;
 }
 
-.hero h1 span,
-.container h1 span,
-.title h1 span {
-    color: black;
+/* "Welcome to" — putih + outline hitam */
+.hero h1 .welcome {
+    display: block;
+    color: white;
+    text-shadow: 
+        0 0 4px black,
+        0 0 8px black,
+        2px 2px 4px black;
+}
+
+/* "Kelompok 3" — hitam, TANPA outline */
+.hero h1 .nama {
+    display: block;
+    color: rgba(0, 0, 0, .6);
+    text-shadow: none;
+}
+
+/* Untuk halaman Gallery & About */
+.container h1 span {
+    color: rgba(0, 0, 0, .6);
     font-family: 'Courier New', monospace;
+    text-shadow: none;
 }
 
-/* BUTTON */
+/* BUTTON — VERTIKAL, UKURAN SAMA, TIDAK TRANSPARAN */
 .buttons {
     display: flex;
+    flex-direction: column;
     gap: 12px;
+    width: 200px;
 }
 
 .buttons a {
     padding: 12px 25px;
     border: 1px solid black;
     border-radius: 6px;
+    background: white;
     color: black;
     text-decoration: none;
     transition: .3s;
     font-family: 'Courier New', monospace;
+    text-align: center;
+    width: 100%;
 }
 
 .buttons a:hover {
-    background: white;
+    background: #ddd;
 }
 
 /* ANGGOTA */
@@ -252,30 +278,6 @@ footer {
     text-transform: uppercase;
 }
 
-/* MOTIVASI */
-.motivations {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    text-align: left;
-}
-
-.motivations .card {
-    padding: 25px;
-    border-left: 2px solid black;
-    background: blue;
-}
-
-.motivations .card h3 {
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-.motivations .card p {
-    color: #999;
-    line-height: 1.6;
-}
-
 /* MODAL FOTO */
 .modal {
     display: none;
@@ -299,5 +301,5 @@ footer {
 @media (max-width: 700px) {
     .hero h1 { font-size: 35px; }
     .gallery { grid-template-columns: 1fr; }
-    .motivations { grid-template-columns: 1fr; }
+    .slideshow { height: 250px; }
 }
