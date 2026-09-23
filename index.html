@@ -9,13 +9,23 @@
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav>
         <div class="brand">
-            <h2>KELOMPOK 3</h2>
-            <span>X PPLG 1</span>
+            <img src="logo_neskar.jpg" alt="Logo">
+            <h2>|| KELOMPOK 3</h2>
         </div>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html" onclick="klik(event)">Gallery</a></li>
+            <li><a href="about.html" onclick="klik(event)">About</a></li>
+        </ul>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
         <h1 data-aos="fade-down">
             <span class="welcome">Welcome to</span>
@@ -28,6 +38,7 @@
         </div>
     </section>
 
+    <!-- Anggota Kelompok -->
     <section class="anggota">
         <h2 data-aos="fade-up">Anggota Kelompok</h2>
 
@@ -49,10 +60,13 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>© Kelompok 3</footer>
 
+    <!-- Audio Klik -->
     <audio id="klik" src="click.wav" preload="auto"></audio>
 
+    <!-- Library AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -75,7 +89,7 @@
             const more = document.getElementById('more');
             const btn = document.getElementById('btnMore');
             const suara = document.getElementById('klik');
-            
+
             suara.currentTime = 0;
             suara.play();
 
@@ -90,6 +104,10 @@
             setTimeout(() => {
                 AOS.refresh();
             }, 100);
+        }
+
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
         }
     </script>
 

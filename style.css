@@ -5,7 +5,6 @@
     font-family: Arial, sans-serif;
 }
 
-
 /*
     Background + Overlay Gelap
 */
@@ -30,34 +29,84 @@ footer {
     Navbar
 */
 nav {
-    padding: 20px 8%;
+    padding: 15px 8%;
     background: white;
     border-bottom: 1px solid #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 nav .brand {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 10px;
 }
 
 nav h2 {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 0;
+    font-family: 'Courier New', monospace;
 }
 
-nav .brand span {
-    color: black;
-    font-size: 14px;
-    opacity: .7;
+/* Logo gerak kiri-kanan */
+nav .brand img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    animation: goyang 2s ease-in-out infinite;
 }
 
-nav a {
+@keyframes goyang {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-6px); }
+    75%  { transform: translateX(6px); }
+    100% { transform: translateX(0); }
+}
+
+/* Menu desktop */
+nav .menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav .menu a {
     color: black;
     text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    transition: .3s;
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+nav .menu a:hover {
+    transform: translateY(-3px);
+    color: #007bff;
+}
+
+/* Hamburger */
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    transition: .3s;
+}
+
+nav .hamburger:hover {
+    transform: scale(1.2);
+}
+
+nav .hamburger:active {
+    transform: rotate(90deg) scale(1.2);
 }
 
 /*
@@ -80,27 +129,18 @@ nav a {
     line-height: 1.2;
 }
 
-/*
-    "Welcome To" — Putih
-*/
 .hero h1 .welcome {
     display: block;
     color: white;
     text-shadow: 0 0 4px black, 0 0 8px black, 2px 2px 4px black;
 }
 
-/*
-    "Kelompok 3" — Hitam Transparan
-*/
 .hero h1 .nama {
     display: block;
     color: rgba(0, 0, 0, .6);
     text-shadow: none;
 }
 
-/*
-    Teks Hitam Di Gallery & About
-*/
 .container h1 span {
     color: rgba(0, 0, 0, .6);
     font-family: 'Courier New', monospace;
@@ -235,9 +275,6 @@ footer {
     text-align: justify;
 }
 
-.about-box p {
-    font-family: 'Courier New', monospace;
-}
 /*
     Slideshow Foto Kelas (About)
 */
@@ -333,6 +370,48 @@ footer {
     RESPONSIVE (HP)
 */
 @media (max-width: 700px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    nav .menu.show {
+        display: flex;
+    }
+
+    /* Animasi hanya di HP */
+    nav .menu.show li {
+        animation: slideDown .4s forwards;
+    }
+
+    nav .menu.show li:nth-child(1) { animation-delay: .1s; }
+    nav .menu.show li:nth-child(2) { animation-delay: .2s; }
+    nav .menu.show li:nth-child(3) { animation-delay: .3s; }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     .hero h1 { font-size: 35px; }
     .gallery { grid-template-columns: 1fr; }
     .slideshow { height: 250px; }

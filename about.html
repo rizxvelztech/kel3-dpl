@@ -12,10 +12,17 @@
     <!-- Navbar -->
     <nav>
         <div class="brand">
-            <h2>KELOMPOK 3</h2>
-            <span>X PPLG 1</span>
+            <img src="logo_neskar.jpg" alt="Logo">
+            <h2>|| KELOMPOK 3</h2>
         </div>
-        <a href="index.html" onclick="klik(event)">Home</a>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <ul class="menu" id="menu">
+            <li><a href="index.html" onclick="klik(event)">Home</a></li>
+            <li><a href="gallery.html" onclick="klik(event)">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
 
     <div class="container">
@@ -48,14 +55,12 @@
     <!-- Audio Klik -->
     <audio id="klik" src="click.wav" preload="auto"></audio>
 
-    <!-- Library Aos -->
+    <!-- Library AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        <!-- INIT AOS -->
         AOS.init({ duration: 400, once: false });
 
-        <!-- SUARA KLIK + PINDAH HALAMAN -->
         function klik(e) {
             e.preventDefault();
             const tujuan = e.currentTarget.href;
@@ -69,7 +74,6 @@
             }, 200);
         }
 
-        <!-- SLIDESHOW OTOMATIS (GANTI TIAP 3 DETIK) -->
         const slides = document.querySelectorAll('.slide');
         let index = 0;
 
@@ -78,6 +82,10 @@
             index = (index + 1) % slides.length;
             slides[index].classList.add('active');
         }, 3000);
+
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
     </script>
 
 </body>
