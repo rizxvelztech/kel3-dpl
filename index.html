@@ -74,6 +74,10 @@
         function lihatLainnya() {
             const more = document.getElementById('more');
             const btn = document.getElementById('btnMore');
+            const suara = document.getElementById('klik');
+            
+            suara.currentTime = 0;
+            suara.play();
 
             more.classList.toggle('show');
 

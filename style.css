@@ -5,61 +5,30 @@
     font-family: Arial, sans-serif;
 }
 
+
+/*
+    Background + Overlay Gelap
+*/
 body {
-    background: url('foto.jpg') center/cover no-repeat fixed;
+    background: 
+        linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .5)),
+        url('foto.jpg') center/cover no-repeat fixed;
     color: white;
     min-height: 100vh;
 }
 
-/* OUTLINE TEKS PUTIH SAJA */
+/*
+    Outline Teks Putih
+*/
 .anggota h2,
 .container h1,
 footer {
-    text-shadow: 
-        0 0 4px black,
-        0 0 8px black,
-        2px 2px 4px black;
+    text-shadow: 0 0 4px black, 0 0 8px black, 2px 2px 4px black;
 }
 
-/* ABOUT BOX */
-.about-box {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 25px;
-    background: rgba(0, 0, 0, .5);
-    border-radius: 10px;
-    line-height: 1.8;
-    font-family: 'Courier New', monospace;
-    text-align: justify;
-}
-
-/* SLIDESHOW */
-.slideshow {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    height: 400px;
-    margin: 30px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .5);
-}
-
-.slideshow .slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.slideshow .slide.active {
-    opacity: 1;
-}
-
-/* NAVBAR */
+/*
+    Navbar
+*/
 nav {
     padding: 20px 8%;
     background: white;
@@ -91,7 +60,9 @@ nav a {
     text-decoration: none;
 }
 
-/* HERO */
+/*
+    Hero (Halaman Home)
+*/
 .hero {
     min-height: 75vh;
     display: flex;
@@ -109,31 +80,36 @@ nav a {
     line-height: 1.2;
 }
 
-/* "Welcome to" — putih + outline hitam */
+/*
+    "Welcome To" — Putih
+*/
 .hero h1 .welcome {
     display: block;
     color: white;
-    text-shadow: 
-        0 0 4px black,
-        0 0 8px black,
-        2px 2px 4px black;
+    text-shadow: 0 0 4px black, 0 0 8px black, 2px 2px 4px black;
 }
 
-/* "Kelompok 3" — hitam, TANPA outline */
+/*
+    "Kelompok 3" — Hitam Transparan
+*/
 .hero h1 .nama {
     display: block;
     color: rgba(0, 0, 0, .6);
     text-shadow: none;
 }
 
-/* Untuk halaman Gallery & About */
+/*
+    Teks Hitam Di Gallery & About
+*/
 .container h1 span {
     color: rgba(0, 0, 0, .6);
     font-family: 'Courier New', monospace;
     text-shadow: none;
 }
 
-/* BUTTON — VERTIKAL, UKURAN SAMA, TIDAK TRANSPARAN */
+/*
+    Button (Gallery & About)
+*/
 .buttons {
     display: flex;
     flex-direction: column;
@@ -158,7 +134,9 @@ nav a {
     background: #ddd;
 }
 
-/* ANGGOTA */
+/*
+    Anggota Kelompok (Halaman Home)
+*/
 .anggota {
     padding: 50px 8% 70px;
     text-align: center;
@@ -196,7 +174,9 @@ nav a {
     background: #eee;
 }
 
-/* LIHAT LAINNYA */
+/*
+    Tombol Lihat Lainnya
+*/
 .more {
     display: none;
     flex-direction: column;
@@ -223,22 +203,72 @@ nav a {
     background: #eee;
 }
 
-/* FOOTER */
+/*
+    Footer
+*/
 footer {
     text-align: center;
     padding: 20px;
     font-size: 13px;
     color: #ddd;
-    border-top: 1px solid rgba(255,255,255,.2);
 }
 
-/* CONTAINER */
+/*
+    Container (Gallery & About)
+*/
 .container {
     padding: 50px 8%;
     text-align: center;
 }
 
-/* GALLERY */
+/*
+    About Box (Halaman About)
+*/
+.about-box {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    text-align: justify;
+}
+
+.about-box p {
+    font-family: 'Courier New', monospace;
+}
+/*
+    Slideshow Foto Kelas (About)
+*/
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .5);
+}
+
+.slideshow .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow .slide.active {
+    opacity: 1;
+}
+
+/*
+    Gallery Foto Anggota
+*/
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -278,7 +308,9 @@ footer {
     text-transform: uppercase;
 }
 
-/* MODAL FOTO */
+/*
+    Modal Foto Besar
+*/
 .modal {
     display: none;
     position: fixed;
@@ -297,7 +329,9 @@ footer {
     border-radius: 8px;
 }
 
-/* RESPONSIVE */
+/*
+    RESPONSIVE (HP)
+*/
 @media (max-width: 700px) {
     .hero h1 { font-size: 35px; }
     .gallery { grid-template-columns: 1fr; }

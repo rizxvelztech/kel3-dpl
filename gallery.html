@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav>
         <div class="brand">
             <h2>KELOMPOK 3</h2>
@@ -17,21 +18,42 @@
         <a href="index.html" onclick="klik(event)">Home</a>
     </nav>
 
+    <!-- Gallery Anggota -->
     <div class="container">
         <h1 data-aos="fade-down">Gallery <span>Anggota</span></h1>
 
         <div class="gallery">
 
-            <div class="card" data-aos="zoom-in">
-                <img src="afrizal.jpg" onclick="bukaFoto(this)">
-                <h3>Afrizal</h3>
+            <div class="card" data-aos="zoom-in" data-aos-delay="600">
+                <img src="alifia.jpg" onclick="bukaFoto(this)">
+                <h3>Alifia</h3>
+            </div>
+            
+            <div class="card" data-aos="zoom-in" data-aos-delay="500">
+                <img src="aulia.jpg" onclick="bukaFoto(this)">
+                <h3>Aulia</h3>
             </div>
 
+            <div class="card" data-aos="zoom-in" data-aos-delay="800">
+                <img src="diva.jpg" onclick="bukaFoto(this)">
+                <h3>Diva</h3>                
+            </div>
+            
+            <div class="card" data-aos="zoom-in" data-aos-delay="700">
+                <img src="najwa.jpg" onclick="bukaFoto(this)">
+                <h3>Najwa</h3>
+            </div>
+            
             <div class="card" data-aos="zoom-in" data-aos-delay="100">
                 <img src="adnan.jpg" onclick="bukaFoto(this)">
                 <h3>Adnan</h3>
             </div>
 
+            <div class="card" data-aos="zoom-in">
+                <img src="afrizal.jpg" onclick="bukaFoto(this)">
+                <h3>Afrizal</h3>
+            </div>
+            
             <div class="card" data-aos="zoom-in" data-aos-delay="200">
                 <img src="avino.jpg" onclick="bukaFoto(this)">
                 <h3>Avino</h3>
@@ -45,42 +67,27 @@
             <div class="card" data-aos="zoom-in" data-aos-delay="400">
                 <img src="faris.jpg" onclick="bukaFoto(this)">
                 <h3>Faris</h3>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-delay="500">
-                <img src="aulia.jpg" onclick="bukaFoto(this)">
-                <h3>Aulia</h3>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-delay="600">
-                <img src="alifia.jpg" onclick="bukaFoto(this)">
-                <h3>Alifia</h3>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-delay="700">
-                <img src="najwa.jpg" onclick="bukaFoto(this)">
-                <h3>Najwa</h3>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-delay="800">
-                <img src="diva.jpg" onclick="bukaFoto(this)">
-                <h3>Diva</h3>
-            </div>
-            
+            </div>                                            
+                                    
         </div>
     </div>
 
+    <!-- Modal Foto Besar -->
     <div class="modal" id="modal" onclick="tutupFoto()">
         <img id="fotoBesar" src="">
     </div>
 
+    <!-- AUDIO KLIK -->
     <audio id="klik" src="click.wav" preload="auto"></audio>
 
+    <!-- Library Aos -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        AOS.init({ duration: 800, once: false });
+        <!-- INIT AOS -->
+        AOS.init({ duration: 400, once: false });
 
+        <!-- SUARA KLIK + PINDAH HALAMAN -->
         function klik(e) {
             e.preventDefault();
             const tujuan = e.currentTarget.href;
@@ -94,11 +101,13 @@
             }, 200);
         }
 
+        <!-- BUKA FOTO FULL SCREEN -->
         function bukaFoto(el) {
             document.getElementById('fotoBesar').src = el.src;
             document.getElementById('modal').style.display = 'flex';
         }
 
+        <!-- TUTUP FOTO -->
         function tutupFoto() {
             document.getElementById('modal').style.display = 'none';
         }
